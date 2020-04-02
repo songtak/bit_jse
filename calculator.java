@@ -1,17 +1,27 @@
 package com.jse.app;
 
-import java.util.Scanner;
-
-public class calculator {
-       public static void main(String[] args) {
-    	   System.out.println("첫번째 수 입력");
-    	   Scanner scanner = new Scanner (System.in);
-    	   int a = scanner.nextInt();
-    	   System.out.println("두번째 수 입력");
-    	   Scanner scanner2 = new Scanner (System.in);
-    	   int b = scanner2.nextInt();
-    	   int c = a + b;
-    	   System.out.println("둘의 합은 "+ c);
+public class Calculator {
+	private int num1;
+	private int num2;
+	
+	   public void setNum1(int num1) {
+		   this.num1 = num1;
+	   }
+	   public int getNum1() {
+		   return num1;
+	   }
 	   
+	   public void setNum2(int num2) {
+		   this.num2 = num2;
+	   }
+	   public int getNum2() {
+		   return num2;
+	   }
+	   
+       public int calculate() {
+    	   
+    	   int c =num1 + num2;
+	       return c;
 }
+       
 }
