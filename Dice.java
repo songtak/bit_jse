@@ -5,6 +5,8 @@ import java.util.Random;
 public class Dice {
 	private String expect;
 	private int diceNumber;
+	public Dice() {
+	}
 	
 	public void setExpect(String expect) {
 		this.expect = expect;
@@ -22,7 +24,8 @@ public class Dice {
 	
 	public String switchDice() {
 		String result = "";
-		switch(diceNumber) {
+
+ {
 		case 1:case 3:case 5: result = "홀"; break;
 		case 2:case 4:case 6: result = "짝"; break;
 		}

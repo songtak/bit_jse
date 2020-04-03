@@ -18,8 +18,7 @@ public class Calculator {
 		   return num2;
 	   }
 	   
-       public int calculate() {
-    	   
+       public int calculate() {  	   
     	   int c =num1 + num2;
 	       return c;
 }
