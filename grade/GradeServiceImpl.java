@@ -1,11 +1,11 @@
 package com.jse.grade;
 
 public class GradeServiceImpl implements GradeService{
-	
+
 	private Grade[] grades;
-	public int count;
+	private int count;
 	public GradeServiceImpl() {
-		grades = new Grade[3];
+		grades = new Grade[4];
 		count = 0;
 	}
 	@Override
@@ -19,11 +19,12 @@ public class GradeServiceImpl implements GradeService{
 	@Override
 	public void add(Grade grade) {
 		grades[count] = grade;
-		count++;	
+		count++;
 	}
 	@Override
-	public void setCount (int count) {
-		this.count = count;	
+	public void setCount(int count) {
+		this.count = count;
+		
 	}
 	@Override
 	public int getCount() {
@@ -31,47 +32,44 @@ public class GradeServiceImpl implements GradeService{
 	}
 	@Override
 	public int total(Grade grade) {
-		return grade.getKorean() + grade.getEnglish() + grade.getMath();
+		return grade.getKorean() + grade.getEnglish() + grade.getMath() + grade.getJava();
 	}
 	@Override
 	public int average(Grade grade) {
-		return total(grade) / 3;
+		return total(grade) / 4;
 	}
 	@Override
 	public String record(Grade grade) {
-		   String result = "";		
-		   int average = average(grade);
-		   
-		   if (average>=90) {
-			   result = "A";
-		   } else if (average>=80) {
-			   result = "B";
-		   } else if (average>=70) {
-			   result = "C";
-		   }else if (average>=60) {
-			   result = "D";
-		   } else if (average>=50) {
-			   result = "E";
-		   }else{
-			   result = "F";
-		   }
-		   return result;
-		   
-		   }
-
+		String resule = "";
+		int average = average(grade);
+		
+		if(average >= 90) {
+			resule = "A";
+		}else if(average >= 80){
+			resule = "B";
+		}else if(average >= 70){
+			resule = "C";
+		}else if(average >= 60){
+			resule = "D";
+		}else if(average >= 50){
+			resule = "E";
+		}else {
+			resule = "F";
+		}
+		return resule;
+	}
 	@Override
 	public String printGrades() {
 		String result = "";
-		for(int i=0; i<3; i++) {
-			result += String.format("[%s : 총점 %d 점, 평균 %d 점,학점 : %s]\n",
-					grades[i].getName(), 
-					total(grades[i]), 
-					average(grades[i]), 
+		for(int i=0;i<4;i++) {
+			result += String.format("[%s : 총점 %d 점, 평균 %d 점,학점 : %s] \n",
+					grades[i].getName(),
+					total(grades[i]),
+					average(grades[i]),
 					record(grades[i]));
 		}
 		return result;
 	}
-
 	@Override
 	public String ranking() {
 		int a = total(grades[0]);
@@ -103,5 +101,6 @@ public class GradeServiceImpl implements GradeService{
 			}
 		}
 		return null;
-	}	
+	}
+	
 }
